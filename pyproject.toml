@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "youtube-scraper"
+version = "0.1.0"
+description = "YouTube scraper in Python: videos, transcripts, Shorts, channels and comments as JSON, by URL, keyword, hashtag or channel, on the Bright Data YouTube Scraper API. No YouTube API key, no quota, no dependencies. 5,000 free credits a month."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+youtube-scraper = "youtube_scraper.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/brightdata/youtube-scraper"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/youtube_scraper"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]  # a literal API payload reads better on one line
