@@ -691,3 +691,11 @@ Anything about the API, your account or your credits:
 ## YouTube scraper for Node.js
 
 The same YouTube scraper is available for Node.js: [brightdata/youtube-scraper-node](https://github.com/brightdata/youtube-scraper-node).
+
+## More open source scrapers from Bright Data
+
+Other Python scrapers built the same way, with live-verified examples:
+
+- [TikTok scraper for Python](https://github.com/brightdata/tiktok-scraper)
+- [Instagram scraper for Python](https://github.com/brightdata/instagram-scraper)
+- [ChatGPT scraper for Python](https://github.com/brightdata/chatgpt-scraper)
