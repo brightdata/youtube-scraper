@@ -104,18 +104,18 @@ once and writes one JSON file.
 
 ```bash
 pip install git+https://github.com/brightdata/youtube-scraper
-youtube-scraper "python tutorial" "sourdough bread recipe" --limit 2
+youtube-scraper "python tutorial" "home workout" --limit 2
 ```
 
 ```
-Finding up to 2 videos per keyword, for: python tutorial, sourdough bread recipe
+Finding up to 2 videos per keyword, for: python tutorial, home workout
 Usually two to ten minutes each. Billed per video, 5,000 free credits a month.
 asking  'python tutorial'...
 got     'python tutorial': 1 videos, 1 error rows: Parse error: ORIGINAL_LANGUAGE_TO_COUNTRY is not defined
-asking  'sourdough bread recipe'...
-got     'sourdough bread recipe': 1 videos, 1 error rows: Parse error: ORIGINAL_LANGUAGE_TO_COUNTRY is not defined
+asking  'home workout'...
+got     'home workout': 2 videos
 
-Saved 2 videos as JSON to youtube.json (52 fields per video)
+Saved 3 videos as JSON to youtube.json (51 fields per video)
 ```
 
 In a terminal the `asking` lines are replaced by a spinner and a running
@@ -138,7 +138,7 @@ before reading `videos`:
 ```python
 from youtube_scraper import scrape
 
-for outcome in scrape(["sourdough bread recipe", "home workout"], limit=1):
+for outcome in scrape(["python tutorial", "home workout"], limit=1):
     if outcome.ok:
         video = outcome.videos[0]
         print(f"{outcome.keyword}: {video['title'][:45]} ({video['views']} views)")
@@ -147,8 +147,8 @@ for outcome in scrape(["sourdough bread recipe", "home workout"], limit=1):
 ```
 
 ```
-sourdough bread recipe failed: Parse error: ORIGINAL_LANGUAGE_TO_COUNTRY is not defined
-home workout: 25 MIN FULL BODY HIIT for Beginners - No Equi (34818869 views)
+python tutorial: Curso de PYTHON desde CERO (Completo) (6251934 views)
+home workout: 25 MIN FULL BODY HIIT for Beginners - No Equi (34828112 views)
 ```
 
 A keyword fails only when every row it returns is an error row. When a search

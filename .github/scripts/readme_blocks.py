@@ -77,10 +77,10 @@ def run_block(n):
     for _attempt in (1, 2):
         started = time.time()
         try:
-            run = subprocess.run(argv, capture_output=True, text=True, timeout=1080)
+            run = subprocess.run(argv, capture_output=True, text=True, timeout=1920)
         except subprocess.TimeoutExpired:
             run = subprocess.CompletedProcess(
-                argv, 1, "", "block timeout: no result within 18 minutes")
+                argv, 1, "", "block timeout: no result within 32 minutes")
         secs = round(time.time() - started)
         out, err = run.stdout.strip(), run.stderr.strip()
         if secret:  # summaries are not secret-masked the way logs are
