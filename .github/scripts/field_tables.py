@@ -44,7 +44,7 @@ def main():
     first = sample["keywords"][0]["videos"][0]
     lines = [
         START,
-        "Regenerated every day from the published schema,",
+        "Regenerated every week from the published schema,",
         f"[scrapers-full.json]({SOURCE}), so they cannot go stale. A record",
         "carries the fields that apply to it, plus `timestamp` and `input`; the",
         f"sample file's first video has {len(first)} keys.",
